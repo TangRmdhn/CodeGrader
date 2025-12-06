@@ -1,42 +1,42 @@
-# ⚡ Asisten Penilai Kode Otomatis
+# ⚡ Automatic Code Grader Assistant
 
-Aplikasi web untuk menilai tugas pemrograman secara otomatis menggunakan AI dari **Groq**. Sistem ini dapat membaca soal dari PDF atau teks, kemudian menilai *batch* file kode (dalam `.zip`) dan memberikan *feedback* mendetail beserta skor untuk setiap file.
-
-<br>
-
-## 🎯 Masalah yang Diselesaikan
-
-Mengoreksi tugas pemrograman secara manual memiliki tantangan tersendiri, terutama jika jumlah mahasiswa mencapai ratusan:
-
-1.  **Waktu yang Lama**: Membuka file satu per satu, menjalankan kode, dan mengecek logika membutuhkan waktu berjam-jam.
-2.  **Inkonsistensi Penilaian**: Faktor kelelahan manusia bisa menyebabkan penilaian menjadi tidak konsisten antara mahasiswa pertama dan terakhir.
-3.  **Feedback Terbatas**: Seringkali mahasiswa hanya mendapatkan angka tanpa tahu detail letak kesalahan logika mereka karena keterbatasan waktu pengoreksi.
-
-**CodeGrader** hadir untuk menyelesaikan masalah tersebut dengan mengotomatisasi proses baca, eksekusi logika, dan pemberian feedback instan.
+A web application to automatically grade programming assignments using **Groq** AI. This system can read questions from PDF or text, process a *batch* of code files (in `.zip`), and provide detailed *feedback* along with scores for each file.
 
 <br>
 
-## 🎥 Demo Singkat
+## 🎯 Problems Solved
 
-Lihat bagaimana aplikasi ini menilai puluhan kode hanya dalam hitungan detik:
+Grading programming assignments manually presents several challenges, especially when dealing with hundreds of students:
 
-![Demo CodeGrader](https://placeholder-url.com/ganti-dengan-link-gif-lu-disini.gif)
+1.  **Time-Consuming**: Opening files one by one, running code, and checking logic takes hours.
+2.  **Grading Inconsistency**: Human fatigue can lead to inconsistent grading between the first and the last student.
+3.  **Limited Feedback**: Students often only receive a numerical score without knowing the details of their logical errors due to the grader's time constraints.
 
-*(Catatan: Ganti link di atas dengan URL gambar/GIF demo aplikasi Anda)*
+**CodeGrader** is here to solve these problems by automating the reading process, logic execution, and providing instant feedback.
 
 <br>
 
-## 🏗️ Arsitektur Sistem
+## 🎥 Quick Demo
 
-Berikut adalah alur kerja (pipeline) bagaimana sistem ini memproses data dari input hingga menjadi laporan nilai:
+See how this app grades dozens of codes in just seconds:
+
+![CodeGrader Demo](https://placeholder-url.com/replace-with-your-gif-link-here.gif)
+
+*(Note: Replace the link above with your actual application demo GIF/Image URL)*
+
+<br>
+
+## 🏗️ System Architecture
+
+Below is the workflow (pipeline) of how the system processes data from input to the grading report:
 
 ```mermaid
 graph TD
-    User([👨‍🏫 User / Dosen])
+    User([👨‍🏫 User / Lecturer])
     subgraph UI [Frontend - Streamlit]
-        InputSoal[Input Soal / Upload PDF]
-        InputZip[Upload ZIP Tugas Mahasiswa]
-        ResultTable[Tabel Hasil Real-time]
+        InputSoal[Input Question / Upload PDF]
+        InputZip[Upload Student ZIP]
+        ResultTable[Real-time Result Table]
     end
 
     subgraph Backend [Backend Processing]
@@ -69,46 +69,46 @@ graph TD
 
 <br>
 
-## ✨ Fitur Utama
+## ✨ Key Features
 
-  - 🤖 **Penilaian AI Otomatis**: Menggunakan model LLM super cepat dari Groq untuk penilaian yang akurat dan konsisten.
-  - 📄 **Dukungan PDF & Teks**: Baca soal langsung dari file `.pdf` atau salin-tempel teks soal.
-  - 📦 **Batch Processing**: Nilai puluhan atau ratusan file tugas sekaligus hanya dengan satu file `.zip`.
-  - ⚡ **Real-time Progress**: Lihat progres penilaian dan hasil yang masuk satu per satu secara *live*.
-  - 📊 **Statistik & Visualisasi**: Dapatkan ringkasan statistik (rata-rata, tertinggi, terendah) dan tabel hasil berkode warna.
-  - 📤 **Ekspor Hasil**: Unduh laporan penilaian lengkap dalam format `.xlsx` (Excel) atau `.csv`.
-  - 🔧 **Konfigurasi Model**: Pilih model Groq yang paling sesuai dengan kebutuhan Anda, dari yang tercepat hingga yang paling akurat.
+  - 🤖 **Automatic AI Grading**: Utilizes super-fast LLM models from Groq for accurate and consistent grading.
+  - 📄 **PDF & Text Support**: Read questions directly from `.pdf` files or copy-paste text.
+  - 📦 **Batch Processing**: Grade dozens or hundreds of assignment files at once with just a single `.zip` file.
+  - ⚡ **Real-time Progress**: View grading progress and results coming in one by one *live*.
+  - 📊 **Statistics & Visualization**: Get statistical summaries (average, highest, lowest) and color-coded result tables.
+  - 📤 **Export Results**: Download the full grading report in `.xlsx` (Excel) or `.csv` format.
+  - 🔧 **Model Configuration**: Choose the Groq model that best suits your needs, from the fastest to the most accurate.
 
-## 🚀 Instalasi & Setup
+## 🚀 Installation & Setup
 
-Ini adalah panduan lengkap untuk menjalankan aplikasi di komputer lokal Anda.
+This is a complete guide to running the application on your local machine.
 
-### Prasyarat
+### Prerequisites
 
-  - **Python 3.8** atau versi lebih baru.
-  - **API Key Groq**: Anda bisa mendapatkannya secara gratis di [Groq Console](https://console.groq.com/keys).
+  - **Python 3.8** or newer.
+  - **Groq API Key**: You can get it for free at the [Groq Console](https://console.groq.com/keys).
 
 -----
 
-### Langkah 1: Clone Repository
+### Step 1: Clone Repository
 
-Buka terminal atau Command Prompt, lalu *clone* repository ini ke komputer Anda dan masuk ke direktorinya.
+Open your terminal or Command Prompt, then *clone* this repository to your computer and enter the directory.
 
 ```bash
 git clone [https://github.com/TangRmdhn/asisten-penilai-kode.git](https://github.com/TangRmdhn/asisten-penilai-kode.git)
 cd asisten-penilai-kode
 ```
 
-### Langkah 2: Buat Virtual Environment (Sangat Direkomendasikan)
+### Step 2: Create Virtual Environment (Highly Recommended)
 
-Membuat *virtual environment* (venv) adalah *best practice* untuk mengisolasi *dependency* project Anda.
+Creating a *virtual environment* (venv) is a *best practice* to isolate your project dependencies.
 
 ```bash
-# Buat venv di folder bernama 'venv'
+# Create venv in a folder named 'venv'
 python -m venv venv
 ```
 
-Selanjutnya, aktifkan venv tersebut:
+Next, activate the venv:
 
   - **Windows (Command Prompt):**
     ```bash
@@ -119,22 +119,22 @@ Selanjutnya, aktifkan venv tersebut:
     source venv/bin/activate
     ```
 
-Anda akan melihat `(venv)` di awal baris terminal jika berhasil.
+You will see `(venv)` at the beginning of the terminal line if successful.
 
-### Langkah 3: Install Dependencies
+### Step 3: Install Dependencies
 
-Pastikan venv Anda aktif, lalu install semua *library* yang dibutuhkan dari `requirements.txt`.
+Make sure your venv is active, then install all required *libraries* from `requirements.txt`.
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### Langkah 4: Konfigurasi API Key
+### Step 4: Configure API Key
 
-Aplikasi ini membaca API Key dari file `.env`.
+The application reads the API Key from the `.env` file.
 
-1.  Buat file baru bernama `.env` di dalam folder utama project (di lokasi yang sama dengan `app.py`).
-2.  Buka file `.env` tersebut dengan teks editor dan tambahkan baris berikut:
+1.  Create a new file named `.env` in the project's root folder (same location as `app.py`).
+2.  Open the `.env` file with a text editor and add the following line:
 
 <!-- end list -->
 
@@ -142,103 +142,67 @@ Aplikasi ini membaca API Key dari file `.env`.
 GROQ_API_KEY=gsk_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 ```
 
-Ganti `gsk_xxxxxxxx...` dengan API Key Groq yang sudah Anda dapatkan dari [Groq Console](https://console.groq.com/keys).
+Replace `gsk_xxxxxxxx...` with the Groq API Key you obtained from the [Groq Console](https://console.groq.com/keys).
 
-## 💻 Menjalankan Aplikasi
+## 💻 Running the Application
 
-Setelah semua setup selesai, jalankan aplikasi menggunakan Streamlit:
+After all setup is complete, run the application using Streamlit:
 
 ```bash
 streamlit run app.py
 ```
 
-Aplikasi akan otomatis terbuka di browser Anda (biasanya di `http://localhost:8501`).
+The application will automatically open in your browser (usually at `http://localhost:8501`).
 
-## 📖 Cara Penggunaan
+## 📖 How to Use
 
-1.  **Input Soal**: Di sisi kiri, pilih tab "Input Teks" untuk mengetik soal, atau "Upload PDF" untuk mengunggah file soal.
-2.  **Kriteria Tambahan (Opsional)**: Masukkan poin-poin penting yang harus dinilai oleh AI (contoh: "Wajib menggunakan rekursif", "Nama variabel harus jelas").
-3.  **Upload File Tugas**: Kompres semua file kode siswa (misal: `Ahmad.py`, `Budi.py`) ke dalam **satu file .zip** lalu unggah file ZIP tersebut.
-4.  **Pilih Model (Opsional)**: Di sidebar kiri, Anda bisa memilih model AI yang ingin digunakan.
-5.  **Mulai Penilaian**: Klik tombol **"🚀 Mulai Penilaian"**.
-6.  **Lihat Hasil**: Hasil akan muncul satu per satu di tabel sebelah kanan secara *real-time*. Tabel akan diberi kode warna untuk memudahkan analisis.
-7.  **Download Laporan**: Setelah selesai, statistik penilaian akan muncul. Gunakan tombol "Download Excel" atau "Download CSV" untuk menyimpan laporan.
+1.  **Input Question**: On the left side, select the "Text Input" tab to type the question, or "Upload PDF" to upload the question file.
+2.  **Additional Criteria (Optional)**: Enter important points that must be graded by the AI (e.g., "Must use recursion", "Variable names must be clear").
+3.  **Upload Assignment File**: Compress all student code files (e.g., `Ahmad.py`, `Budi.py`) into **one .zip file** then upload the ZIP file.
+4.  **Select Model (Optional)**: On the left sidebar, you can choose the AI model you want to use.
+5.  **Start Grading**: Click the **"🚀 Start Grading"** button.
+6.  **View Results**: Results will appear one by one in the table on the right in *real-time*. The table will be color-coded for easier analysis.
+7.  **Download Report**: Once finished, grading statistics will appear. Use the "Download Excel" or "Download CSV" buttons to save the report.
 
-**Struktur `.zip` yang Disarankan:**
+**Recommended `.zip` Structure:**
 
 ```
-tugas_mahasiswa.zip
+student_assignments.zip
 ├── 2024001_Ahmad.py
 ├── 2024002_Budi.py
-├── SubFolder/2024003_Citra.py  <-- (Aplikasi bisa membaca file di dalam sub-folder)
+├── SubFolder/2024003_Citra.py  <-- (The app can read files inside sub-folders)
 └── ...
 ```
 
-## ⚙️ Konfigurasi Lanjutan
+## ⚙️ Advanced Configuration
 
-### Pilihan Model
+### Model Options
 
-Anda dapat memilih model yang berbeda di sidebar. Setiap model memiliki kelebihan:
+You can select different models in the sidebar. Each model has its advantages:
 
-| Model | Keterangan |
+| Model | Description |
 | :--- | :--- |
-| `openai/gpt-oss-120b` | ✅ **Default & Recommended**. Model terbesar & terbaik untuk akurasi tinggi. |
-| `llama-3.3-70b-versatile` | ⚡ Model cepat dengan performa bagus. |
-| `llama-3.2-90b-text-preview` | 🔬 Model eksperimental dengan 90B parameter. |
-| `llama-3.1-70b-versatile` | 💪 Model stabil untuk berbagai tugas. |
-| `mixtral-8x7b-32768` | 🎯 Model MoE dengan konteks panjang (cocok untuk kode yang sangat panjang). |
-| `gemma2-9b-it` | 💎 Model ringan dari Google, sangat cepat. |
-| `gemma-7b-it` | ⚡ Model paling ringan & tercepat (cocok untuk *batch* sangat besar). |
+| `openai/gpt-oss-120b` | ✅ **Default & Recommended**. Largest & best model for high accuracy. |
+| `llama-3.3-70b-versatile` | ⚡ Fast model with great performance. |
+| `llama-3.2-90b-text-preview` | 🔬 Experimental model with 90B parameters. |
+| `llama-3.1-70b-versatile` | 💪 Stable model for various tasks. |
+| `mixtral-8x7b-32768` | 🎯 MoE model with long context (suitable for very long code). |
+| `gemma2-9b-it` | 💎 Lightweight model from Google, very fast. |
+| `gemma-7b-it` | ⚡ Lightest & fastest model (suitable for very large *batches*). |
 
 ### Temperature
 
-Saat ini, `temperature` diatur statis ke **`0.1`** di dalam `app.py`. Nilai yang rendah ini dipilih untuk memastikan AI memberikan penilaian yang konsisten, objektif, dan tidak terlalu "kreatif" antar file.
+Currently, `temperature` is statically set to **`0.1`** inside `app.py`. This low value is chosen to ensure the AI provides consistent, objective grading and is not too "creative" between files.
 
-## 📁 Struktur Project
+## 🤝 Contributing
 
-```
-asisten-penilai-kode/
-│
-├── .devcontainer/              # Konfigurasi untuk VS Code Dev Containers
-├── .streamlit/               # Konfigurasi Streamlit (jika ada)
-├── venv/                       # Folder virtual environment (setelah setup)
-│
-├── app.py                      # File utama (UI Streamlit)
-├── penilai_otomatis.py         # Logika inti (backend) penilaian & Groq API
-├── requirements.txt            # Daftar dependency Python
-├── .env                        # File konfigurasi API key (perlu dibuat manual)
-├── .gitignore                  # File yang diabaikan oleh Git
-└── README.md                   # Dokumentasi ini
-```
+Contributions are very welcome\! If you want to develop new features or fix bugs:
 
-## 🔧 Troubleshooting
-
-  - **Error: "API Key tidak valid"**
-
-      - Pastikan file `.env` sudah benar-benar bernama `.env` (bukan `.env.txt`).
-      - Pastikan file `.env` ada di *root directory* (sejajar dengan `app.py`).
-      - Pastikan API Key di-salin dengan benar tanpa spasi tambahan.
-      - **Restart aplikasi** setelah mengubah `.env`.
-
-  - **Error: "File ZIP tidak valid"**
-
-      - Pastikan file yang di-upload adalah `.zip`. Format `.rar`, `.7z`, dll. **tidak didukung**.
-      - Coba buat ulang file `.zip` dengan *tool* kompresi standar (bawaan Windows/macOS, 7-Zip).
-
-  - **Error: "Cannot decode file"**
-
-      - Ini berarti ada file kode di dalam ZIP yang tidak menggunakan encoding standar (seperti UTF-8).
-      - Aplikasi akan mencoba membacanya sebagai `latin-1`, namun jika tetap gagal, file tersebut akan diberi nilai 0 dengan *feedback* error.
-
-## 🤝 Berkontribusi
-
-Kontribusi sangat diterima\! Jika Anda ingin mengembangkan fitur baru atau memperbaiki bug:
-
-1.  *Fork* repository ini.
-2.  Buat *branch* baru (`git checkout -b feature/FiturKeren`).
-3.  *Commit* perubahan Anda (`git commit -m 'Menambahkan FiturKeren'`).
-4.  *Push* ke branch (`git push origin feature/FiturKeren`).
-5.  Buat *Pull Request*.
+1.  *Fork* this repository.
+2.  Create a new *branch* (`git checkout -b feature/CoolFeature`).
+3.  *Commit* your changes (`git commit -m 'Add CoolFeature'`).
+4.  *Push* to the branch (`git push origin feature/CoolFeature`).
+5.  Create a *Pull Request*.
 
 ## 👨‍💻 Author
 
@@ -246,17 +210,17 @@ Kontribusi sangat diterima\! Jika Anda ingin mengembangkan fitur baru atau mempe
 
   - GitHub: [@TangRmdhn](https://github.com/TangRmdhn)
   - Email: bintangramadhan0710@gmail.com
-  - LinkedIn: [Bintang Ramadhan](https://www.linkedin.com/in/tang-ramadhan/)
+  - LinkedIn: [Bintang Ramadhan](https://www.linkedin.com/in/tang-ramadhan)
 
 ## 🙏 Acknowledgments
 
-  - **[Groq](https://groq.com/)** untuk platform inferensi AI yang luar biasa cepat.
-  - **[Streamlit](https://streamlit.io/)** untuk *framework* aplikasi web Python yang simpel dan keren.
-  - **[Meta AI](https://ai.meta.com/llama/)** & **[Google](https://www.google.com/search?q=https://ai.google/gemma/)** untuk model-model *open-source* yang powerful.
+  - **[Groq](https://groq.com/)** for the incredibly fast AI inference platform.
+  - **[Streamlit](https://streamlit.io/)** for the simple and cool Python web framework.
+  - **[Meta AI](https://ai.meta.com/llama/)** & **[Google](https://www.google.com/search?q=https://ai.google/gemma/)** for powerful *open-source* models.
 
 -----
 
-⭐ Jika project ini membantu Anda, jangan ragu untuk memberikan *star* di GitHub\!
+⭐ If this project helps you, don't hesitate to give it a *star* on GitHub\!
 
 ```
 ```
