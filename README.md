@@ -1,6 +1,71 @@
-﻿# ⚡ Asisten Penilai Kode Otomatis
+# ⚡ Asisten Penilai Kode Otomatis
 
 Aplikasi web untuk menilai tugas pemrograman secara otomatis menggunakan AI dari **Groq**. Sistem ini dapat membaca soal dari PDF atau teks, kemudian menilai *batch* file kode (dalam `.zip`) dan memberikan *feedback* mendetail beserta skor untuk setiap file.
+
+<br>
+
+## 🎯 Masalah yang Diselesaikan
+
+Mengoreksi tugas pemrograman secara manual memiliki tantangan tersendiri, terutama jika jumlah mahasiswa mencapai ratusan:
+
+1.  **Waktu yang Lama**: Membuka file satu per satu, menjalankan kode, dan mengecek logika membutuhkan waktu berjam-jam.
+2.  **Inkonsistensi Penilaian**: Faktor kelelahan manusia bisa menyebabkan penilaian menjadi tidak konsisten antara mahasiswa pertama dan terakhir.
+3.  **Feedback Terbatas**: Seringkali mahasiswa hanya mendapatkan angka tanpa tahu detail letak kesalahan logika mereka karena keterbatasan waktu pengoreksi.
+
+**CodeGrader** hadir untuk menyelesaikan masalah tersebut dengan mengotomatisasi proses baca, eksekusi logika, dan pemberian feedback instan.
+
+<br>
+
+## 🎥 Demo Singkat
+
+Lihat bagaimana aplikasi ini menilai puluhan kode hanya dalam hitungan detik:
+
+![Demo CodeGrader](https://placeholder-url.com/ganti-dengan-link-gif-lu-disini.gif)
+
+*(Catatan: Ganti link di atas dengan URL gambar/GIF demo aplikasi Anda)*
+
+<br>
+
+## 🏗️ Arsitektur Sistem
+
+Berikut adalah alur kerja (pipeline) bagaimana sistem ini memproses data dari input hingga menjadi laporan nilai:
+
+```mermaid
+graph TD
+    User([👨‍🏫 User / Dosen])
+    subgraph UI [Frontend - Streamlit]
+        InputSoal[Input Soal / Upload PDF]
+        InputZip[Upload ZIP Tugas Mahasiswa]
+        ResultTable[Tabel Hasil Real-time]
+    end
+
+    subgraph Backend [Backend Processing]
+        Extractor[📂 ZIP Extractor]
+        PDFReader[📄 PDF Parser]
+        PromptEng[⚙️ Prompt Engineering]
+        JSONParser[📝 JSON Cleaner & Validator]
+    end
+
+    subgraph AI [External API]
+        GroqAPI[⚡ Groq Inference Engine]
+        LLM[(🤖 LLM: Llama/Mixtral)]
+    end
+
+    User --> InputSoal
+    User --> InputZip
+    InputSoal --> PDFReader
+    InputZip --> Extractor
+    
+    PDFReader --> PromptEng
+    Extractor -- Loop per File Code --> PromptEng
+    
+    PromptEng -- Request + Context --> GroqAPI
+    GroqAPI <--> LLM
+    GroqAPI -- Raw Response --> JSONParser
+    
+    JSONParser -- Validated Data --> ResultTable
+    ResultTable -- Export XLSX/CSV --> User
+````
 
 <br>
 
@@ -30,11 +95,9 @@ Ini adalah panduan lengkap untuk menjalankan aplikasi di komputer lokal Anda.
 Buka terminal atau Command Prompt, lalu *clone* repository ini ke komputer Anda dan masuk ke direktorinya.
 
 ```bash
-git clone https://github.com/username/asisten-penilai-kode.git
+git clone [https://github.com/TangRmdhn/asisten-penilai-kode.git](https://github.com/TangRmdhn/asisten-penilai-kode.git)
 cd asisten-penilai-kode
 ```
-
-*(Ganti `username/asisten-penilai-kode` dengan URL repository Anda yang sebenarnya)*
 
 ### Langkah 2: Buat Virtual Environment (Sangat Direkomendasikan)
 
@@ -182,7 +245,8 @@ Kontribusi sangat diterima\! Jika Anda ingin mengembangkan fitur baru atau mempe
 **Bintang Ramadhan**
 
   - GitHub: [@TangRmdhn](https://github.com/TangRmdhn)
-  - Email: bintangramadhan0710@gmal.com
+  - Email: bintangramadhan0710@gmail.com
+  - LinkedIn: [Bintang Ramadhan](https://www.linkedin.com/in/tang-ramadhan/)
 
 ## 🙏 Acknowledgments
 
@@ -193,3 +257,6 @@ Kontribusi sangat diterima\! Jika Anda ingin mengembangkan fitur baru atau mempe
 -----
 
 ⭐ Jika project ini membantu Anda, jangan ragu untuk memberikan *star* di GitHub\!
+
+```
+```
